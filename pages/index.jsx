@@ -4,9 +4,12 @@ import Head from "next/head";
 function Home() {
   const textInputRef = useRef();
   const [output, setOutput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const formSubmitHandler = async (e) => {
     e.preventDefault();
+
+    setIsLoading(true);
 
     const prompt = textInputRef.current.value;
     textInputRef.current.value = "";
@@ -23,6 +26,7 @@ function Home() {
 
     const data = await response.json();
 
+    setIsLoading(false);
     setOutput(data.answer);
   };
 
@@ -68,7 +72,9 @@ function Home() {
             </button>
             <div className="w-full">
               <h1 id="Answer" className="text-white text-center text-3xl">
-                {`${output}` || "The Answer will appear here."}
+                {isLoading
+                  ? "Loading..."
+                  : `${output}` || "The Answer will appear here."}
               </h1>
             </div>
           </form>
