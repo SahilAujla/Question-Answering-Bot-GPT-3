@@ -26,14 +26,12 @@ function handler(req, res) {
         });
 
         res.status(200).json({ answer: gptResponse.data.answers[0] });
-        res.end();
       })();
     } catch (err) {
       res.status(500).json({});
     }
   } else {
     res.status(500);
-    res.end();
   }
 }
 
