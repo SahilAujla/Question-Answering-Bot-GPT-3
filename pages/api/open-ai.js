@@ -9,7 +9,7 @@ function handler(req, res) {
   if (req.method === "POST") {
     res.status(200).json({ message: "Hi my name is Sahil" });
   } else {
-    res.status(500);
+    res.status(200).json({ message: "The serverless fuction works!" });
     res.end();
   }
 }
