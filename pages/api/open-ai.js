@@ -23,9 +23,11 @@ async function handler(req, res) {
 
       res.status(200).json({ answer: gptResponse.data.answers[0] });
     } catch (err) {
+      console.log(err);
       res.status(500).json({});
     }
   } else {
+    console.log(err);
     res.status(500);
   }
 }
