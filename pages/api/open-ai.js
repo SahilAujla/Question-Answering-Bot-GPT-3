@@ -7,30 +7,7 @@ function handler(req, res) {
   const prompt = req.body.message.trim();
 
   if (req.method === "POST") {
-    try {
-      (async () => {
-        const gptResponse = await openai.answers({
-          documents: [],
-          question: `${prompt}`,
-          search_model: "ada",
-          model: "ada",
-          examples_context: "",
-          examples: [
-            [
-              "What is human life expectancy in the United States?",
-              "78 years.",
-            ],
-          ],
-          max_tokens: 64,
-          stop: ["\n", "<|endoftext|>", "."],
-        });
-
-        res.status(200).json({ answer: gptResponse.data.answers[0] });
-        res.end();
-      })();
-    } catch (err) {
-      res.status(500).json({});
-    }
+    res.status(200).json({ message: "Hi my name is Sahil" });
   } else {
     res.status(500);
     res.end();
