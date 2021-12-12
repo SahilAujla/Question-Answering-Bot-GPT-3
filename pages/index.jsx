@@ -33,7 +33,7 @@ function Home() {
           className="flex flex-col justify-center items-center h-3/4 w-3/4 mb-8"
         >
           <h1 className="text-white text-center text-4xl mb-12">
-            Question Answering Bot
+            Ask Me Anything
           </h1>
           <div className="w-full">
             <label htmlFor="question" className="text-white text-lg mb-2 block">
